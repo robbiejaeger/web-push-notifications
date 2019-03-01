@@ -7,7 +7,7 @@ const showNotification = (title, options) => {
       .then(registration => {
         registration.showNotification(title, options);
       })
-      .catch(error => console.error(error));
+      .catch(error => console.error('Notification error:', error));
   }
 }
 
@@ -31,6 +31,6 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./service-worker.js')
       .then(registration => console.log('Service worker registered.'))
-      .catch(error => console.error(error));
+      .catch(error => console.error('SW Registration error', error));
   });
 }
